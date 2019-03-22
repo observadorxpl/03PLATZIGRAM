@@ -66,13 +66,17 @@
                     android:inputType="textPassword"
                     />
             </android.support.design.widget.TextInputLayout>
+            <ProgressBar
+                android:id="@+id/login_progressBbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
             <Button
                 android:id="@+id/login_buttonlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/TextButton_login"
                 android:theme="@style/RaisedButtonNormal"
-                android:onClick="goLoginAccount"/>
+                />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -99,7 +103,9 @@
                     android:text=", crea una aqui"
                     android:onClick="goCreateAcoount"
                     />
+
             </RelativeLayout>
+
         </LinearLayout>
         </ScrollView>
     </LinearLayout>

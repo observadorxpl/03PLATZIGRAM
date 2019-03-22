@@ -3,8 +3,11 @@ package com.joseluis.platzigram.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.picture_recyclerview);
 
+        showToolBar(getString(R.string.title_tab_home), false, view);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -52,6 +56,13 @@ public class HomeFragment extends Fragment {
         pictures.add(new PictureCard("https://mott.pe/noticias/wp-content/uploads/2016/11/Janette-Asche-8.jpg", "Pedro Picapiedra", "1 días", "25 Me gusta"));
         pictures.add(new PictureCard("https://farm5.staticflickr.com/4411/36845314562_55ca9d2ff6.jpg", "Anna Lucia", "14 días", "21 Me gusta"));
         return pictures;
+    }
+
+    public void showToolBar(String title, boolean upButton, View view){
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
     }
 
 }
